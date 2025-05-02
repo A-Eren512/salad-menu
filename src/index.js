@@ -52,7 +52,7 @@ const saladsData = [
     soldOut: false,
   },
 ];
-//test
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const [showSoldOut, setShowSoldOut] = useState(true);
