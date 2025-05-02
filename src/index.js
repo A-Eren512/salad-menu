@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-//twss
+
 const saladsData = [
   {
     photo: "salad-images/shepherd's-salad.jpg",
