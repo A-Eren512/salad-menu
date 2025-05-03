@@ -6,6 +6,7 @@ import "./index.css";
 
 const saladsData = [
   {
+    id: 1,
     photo: "salad-images/shepherd's-salad.jpg",
     photoName: "shepherds-salad.jpg",
     name: "Shepherd's Salad",
@@ -15,6 +16,7 @@ const saladsData = [
     stock: 5,
   },
   {
+    id: 2,
     photo: "salad-images/caesar-salad.jpg",
     photoName: "caesar-salad.jpg",
     name: "Caesar Salad",
@@ -24,6 +26,7 @@ const saladsData = [
     stock: 5,
   },
   {
+    id: 3,
     photo: "salad-images/tuna-salad.jpg",
     photoName: "tuna-salad.jpg",
     name: "Tuna Salad",
@@ -33,6 +36,7 @@ const saladsData = [
     stock: 5,
   },
   {
+    id: 4,
     photo: "salad-images/greek-salad.jpg",
     photoName: "greek-salad.jpg",
     name: "Greek Salad",
@@ -42,6 +46,7 @@ const saladsData = [
     stock: 5,
   },
   {
+    id: 5,
     photo: "salad-images/quinoa-salad.jpg",
     photoName: "quinoa-salad.jpg",
     name: "Quinoa Salad",
@@ -52,6 +57,7 @@ const saladsData = [
     stock: 5,
   },
   {
+    id: 6,
     photo: "salad-images/beetroot-salad.jpg",
     photoName: "beetroot-salad.jpg",
     name: "Beetroot Salad",
@@ -93,7 +99,7 @@ function App() {
     if (isOpen && salad.stock > 0) {
       setSalads((prev) =>
         prev.map((item) =>
-          item.name === salad.name ? { ...item, stock: item.stock - 1 } : item
+          item.id === salad.id ? { ...item, stock: item.stock - 1 } : item
         )
       );
       setCart((prevCart) => [...prevCart, salad]);
@@ -101,7 +107,7 @@ function App() {
       if (salad.stock - 1 === 0) {
         setSalads((prev) =>
           prev.map((item) =>
-            item.name === salad.name ? { ...item, soldOut: true } : item
+            item.id === salad.id ? { ...item, soldOut: true } : item
           )
         );
       }
