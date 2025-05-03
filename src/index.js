@@ -76,8 +76,8 @@ function App() {
 
   const hour = new Date().getHours();
   const openHour = 12;
-  const closeHour = 21;
-  const isOpen = hour >= openHour && hour <= closeHour;
+  const closeHour = 24;
+  const isOpen = hour >= openHour && hour < closeHour;
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
