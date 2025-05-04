@@ -196,7 +196,7 @@ button:hover {
 }
 
 .container .data .general:hover {
-  transform: translateY(-5px) scale(1.05) !important;
+  transform: translateY(-5px) scale(1.02) !important;
 }
 
 .stock-label {
