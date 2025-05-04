@@ -191,12 +191,12 @@ button:hover {
   align-items: center;
 
   /* Animation */
-  animation: fadeInUp 0.4s ease-in forwards;
+  animation: fadeInUp 0.4s ease-in-out forwards;
   opacity: 0;
 }
 
-.general:hover {
-  transform: translateY(-5px);
+.container .data .general:hover {
+  transform: translateY(-5px) scale(1.05) !important;
 }
 
 .stock-label {
@@ -246,7 +246,7 @@ button:hover {
 
 .sold-out {
   opacity: 0.7;
-  pointer-events: none;
+  cursor: not-allowed;
   position: relative;
 }
 
