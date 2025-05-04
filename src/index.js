@@ -10,7 +10,7 @@ const saladsData = [
     photo: "salad-images/shepherd's-salad.jpg",
     photoName: "shepherds-salad.jpg",
     name: "Shepherd's Salad",
-    ingredients: "Tomato, Cucumber, Onion, Parsley, Olive oil, Lemon",
+    ingredients: "Tomato, Cucumber, Black Onion, Parsley, Olive oil, Lemon",
     price: 60,
     soldOut: false,
     stock: 5,
@@ -83,7 +83,7 @@ function App() {
   const hour = new Date().getHours();
   const openHour = 12;
   const closeHour = 22;
-  const isOpen = hour >= openHour && hour < closeHour;
+  const isOpen = hour >= openHour || hour < closeHour;
 
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
@@ -233,10 +233,11 @@ function Menu({ salads, toggleSoldOut, showSoldOut, handleAddToCart, isOpen }) {
         </button>
       </div>
       <div className="data">
-        {salads.map((salad) => (
+        {salads.map((salad, index) => (
           <Salads
             key={salad.name}
             sdata={salad}
+            index={index}
             handleAddToCart={handleAddToCart}
             isOpen={isOpen}
           />
@@ -246,10 +247,11 @@ function Menu({ salads, toggleSoldOut, showSoldOut, handleAddToCart, isOpen }) {
   );
 }
 
-function Salads({ sdata, handleAddToCart, isOpen }) {
+function Salads({ sdata, handleAddToCart, isOpen, index }) {
   return (
     <div
       className={`general ${sdata.soldOut ? "sold-out" : ""}`}
+      style={{ animationDelay: `${index * 100}ms` }}
       onClick={() => !sdata.soldOut && isOpen && handleAddToCart(sdata)}
     >
       <img src={sdata.photo} alt={sdata.photoName} />
@@ -261,8 +263,8 @@ function Salads({ sdata, handleAddToCart, isOpen }) {
         <h4>{sdata.ingredients}</h4>
         <span>{sdata.soldOut ? "Sold Out" : `$${sdata.price}`}</span>
         <h5>
-          <span style={{ color: "black", fontSize: "15px" }}>STOCK:</span>{" "}
-          {sdata.stock}
+          <span className="stock-label">STOCK:</span>{" "}
+          <span className="stock-count">{sdata.stock}</span>
         </h5>
       </div>
     </div>

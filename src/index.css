@@ -189,10 +189,23 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  /* Animation */
+  animation: fadeInUp 0.4s ease-in forwards;
+  opacity: 0;
 }
 
 .general:hover {
   transform: translateY(-5px);
+}
+
+.stock-label {
+  color: black;
+  font-size: 15px;
+}
+
+.stock-count {
+  font-weight: bold;
 }
 
 .general img {
@@ -232,8 +245,9 @@ button:hover {
 }
 
 .sold-out {
-  opacity: 0.5;
+  opacity: 0.7;
   pointer-events: none;
+  position: relative;
 }
 
 .sold-out::after {
@@ -242,12 +256,23 @@ button:hover {
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #e74c3c;
-  color: #fff;
+  background-color: rgba(231, 76, 60, 0.8);
+  color: white;
   padding: 6px 12px;
   font-size: 14px;
   font-weight: bold;
   border-radius: 6px;
+  z-index: 1;
+}
+
+.sold-out img,
+.sold-out .extra,
+.sold-out h3,
+.sold-out h4,
+.sold-out span,
+.sold-out h5 {
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* Footer */
@@ -403,5 +428,16 @@ footer .btnClose {
 
   .filter-container {
     margin-bottom: 10px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
