@@ -180,9 +180,7 @@ function App() {
         />
       ) : (
         <div className="closed-message" style={{ marginTop: "30px" }}>
-          <h2>
-            We're closed until to 12.00 p.m. Please come back at 12.00 p.m.
-          </h2>
+          <h2>We're closed until 12.00 p.m. Please come back at 12.00 p.m.</h2>
         </div>
       )}
 
