@@ -198,7 +198,7 @@ function App() {
 }
 
 function Header() {
-  return <h1>Salad Mıtro</h1>;
+  return <h1>Green Delights</h1>;
 }
 
 function Basket({ cart }) {
